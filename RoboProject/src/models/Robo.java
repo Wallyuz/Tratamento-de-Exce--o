@@ -61,7 +61,6 @@ public class Robo {
             default:
                 throw new IllegalArgumentException("Direção inválida: " + direcao);
         }
-        System.out.println("Nova posição do robô: (" + eixoX + ", " + eixoY + ")");
     }
 
     // Método sobrecarregado para mover o robô com int(verificar pq nao funciona)
@@ -83,7 +82,6 @@ public class Robo {
                 throw new IllegalArgumentException("Direção inválida: " + direcao);
         }
     }
-
     // Método para verificar se o robô encontrou o alimento
     public boolean encontrouAlimento(int alimentoX, int alimentoY) {
         return this.eixoX == alimentoX && this.eixoY == alimentoY;
