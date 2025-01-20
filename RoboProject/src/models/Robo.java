@@ -49,6 +49,7 @@ public class Robo {
         this.ativo = false;
         System.out.println("O robô " + cor + " explodiu!");
     }
+    
 
     public void voltarPosicaoAnterior() {
         this.eixoX = this.posicaoAnteriorX;

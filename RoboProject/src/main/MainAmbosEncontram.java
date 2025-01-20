@@ -6,7 +6,7 @@ import models.Robo;
 import models.RoboInteligente;
 import exceptions.MovimentoInvalidoException;
 
-public class MainComUmRoboInteligente {
+public class MainAmbosEncontram {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();

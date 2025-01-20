@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MainAmbosEncontram",
+            "request": "launch",
+            "mainClass": "main.MainAmbosEncontram",
+            "projectName": "src_5e92fa20"
+        },
+        {
+            "type": "java",
+            "name": "MainComObstaculos",
+            "request": "launch",
+            "mainClass": "main.MainComObstaculos",
+            "projectName": "src_5e92fa20"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
