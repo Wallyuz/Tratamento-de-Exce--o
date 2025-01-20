@@ -35,7 +35,7 @@ public class MainDoisRobos {
                 }
             } catch (MovimentoInvalidoException e) {
                 movimentosInvalidosRobo1++;
-                System.out.println(e.getMessage());
+                System.out.println("Robo 1 >" + e.getMessage());
             }
 
             // Movimento do robô 2
@@ -48,8 +48,8 @@ public class MainDoisRobos {
                     break;
                 }
             } catch (MovimentoInvalidoException e) {
-                movimentosInvalidosRobo2++;
-                System.out.println(e.getMessage());
+                movimentosInvalidosRobo1++;
+                System.out.println("Robo 2 >" +e.getMessage());
             }
         }
 

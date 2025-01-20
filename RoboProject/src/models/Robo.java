@@ -88,8 +88,8 @@ public class Robo {
 
         // Verifica se o movimento é válido 
         if (novoX < 0 || novoX >= 4 || novoY < 0 || novoY >= 4) {
-            throw new MovimentoInvalidoException("Movimento inválido para a direção: " + direcao);
-        }
+            throw new MovimentoInvalidoException(direcao);
+        } 
 
         // Atualiza a posição 
         eixoX = novoX;

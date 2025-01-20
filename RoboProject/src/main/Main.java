@@ -29,7 +29,7 @@ public class Main {
                 robo.mover(direcao);
                 System.out.println("Nova posição do robô " + robo.getCor() + ": (" + robo.getX() + ", " + robo.getY() + ")");
             } catch (MovimentoInvalidoException | IllegalArgumentException e) {
-                System.out.println("Movimento inválido: " + e.getMessage());
+                System.out.println(e.getMessage());
             }
 
             // Exibe a matriz com a posição do robô e do alimento

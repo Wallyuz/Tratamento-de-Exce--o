@@ -38,7 +38,7 @@ public class MainAmbosEncontram {
                     movimentosRoboNormal++;
                     System.out.println("Nova posição do robô " + roboNormal.getCor() + ": (" + roboNormal.getX() + ", " + roboNormal.getY() + ")");
                 } catch (MovimentoInvalidoException | IllegalArgumentException e) {
-                    System.out.println("Movimento inválido do robô " + roboNormal.getCor() + ": " + e.getMessage());
+                    System.out.println("Movimento do robô " + roboNormal.getCor() + ": " + e.getMessage());
                 }
             }
 
