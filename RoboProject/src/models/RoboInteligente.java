@@ -17,19 +17,25 @@ public class RoboInteligente extends Robo {
         String ultimaDirecaoInvalida = null;
 
         while (true) {
-            // Movimento válido
             try {
                 super.mover(direcao);
-                break;
-
-                // Escolhe uma nova direção,caso invalido 
+                break; // Movimento válido, sai do loop
             } catch (MovimentoInvalidoException | IllegalArgumentException e) {
                 ultimaDirecaoInvalida = direcao;
-               
+                // Escolhe uma nova direção diferente da última
                 do {
                     direcao = direcoes[random.nextInt(direcoes.length)];
                 } while (direcao.equals(ultimaDirecaoInvalida));
             }
+        }
+    }
+
+    public void moverComObstaculo(String direcao, Obstaculo obstaculo) throws MovimentoInvalidoException {
+        mover(direcao);
+
+        // Verifica se o robô bateu
+        if (this.getX() == obstaculo.getX() && this.getY() == obstaculo.getY()) {
+            obstaculo.bater(this);
         }
     }
 }

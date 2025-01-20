@@ -3,16 +3,17 @@ package main;
 import java.util.Random;
 import java.util.Scanner;
 import models.Robo;
+import models.RoboInteligente;
 import exceptions.MovimentoInvalidoException;
 
-public class MainDoisRobos {
+public class MainDoisRobos{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
         // Inicialização dos robôs
-        Robo robo1 = new Robo("vermelho");
-        Robo robo2 = new Robo("azul");
+        RoboInteligente robo1 = new RoboInteligente("vermelho");
+        RoboInteligente robo2 = new RoboInteligente("azul");
 
         // Input do alimento
         System.out.print("Digite a posição X do alimento: ");
@@ -71,12 +72,15 @@ public class MainDoisRobos {
             // Alterna o turno entre os robôs
             turnoRobo1 = !turnoRobo1;
 
-            // deixa mais lento o sysout da movimentação dos robos
+            // Deixa o sysout dos resultado mais lento
             try {
-                Thread.sleep(100); 
+                Thread.sleep(150); 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            // Exibe a matriz com a posição dos robôs e do alimento
+            exibirMatriz(robo1, robo2, alimentoX, alimentoY);
         }
 
         // Exibe o número de movimentos válidos e inválidos de cada robô
@@ -84,5 +88,29 @@ public class MainDoisRobos {
         System.out.println("Movimentos inválidos do robô " + robo1.getCor() + ": " + movimentosInvalidosRobo1);
         System.out.println("Movimentos válidos do robô " + robo2.getCor() + ": " + movimentosValidosRobo2);
         System.out.println("Movimentos inválidos do robô " + robo2.getCor() + ": " + movimentosInvalidosRobo2);
+    }
+
+    private static void exibirMatriz(Robo robo1, Robo robo2, int alimentoX, int alimentoY) {
+        char[][] matriz = new char[4][4];
+
+        // Sysout a matriz com a posição dos robôs e do alimento
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                matriz[i][j] = '.';
+            }
+        }
+
+        matriz[robo1.getY()][robo1.getX()] = 'V';
+        matriz[robo2.getY()][robo2.getX()] = 'Z';
+        matriz[alimentoY][alimentoX] = 'A';
+
+        // Exibe a matriz
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }

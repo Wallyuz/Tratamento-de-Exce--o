@@ -5,13 +5,19 @@ import exceptions.MovimentoInvalidoException;
 public class Robo {
     private int eixoX;
     private int eixoY;
+    private int posicaoAnteriorX;
+    private int posicaoAnteriorY;
     private String cor;
+    private boolean ativo;
 
     // inicializa o robo com a cor e posição
     public Robo(String cor) {
         this.cor = cor;
         this.eixoX = 0;
         this.eixoY = 0;
+        this.posicaoAnteriorX = 0;
+        this.posicaoAnteriorY = 0;
+        this.ativo = true;
     }
 
     // gets e sets das posiçoes do eixo e da cor 
@@ -35,55 +41,62 @@ public class Robo {
         return cor;
     }
 
-    public void setCor(String cor) {
-        this.cor = cor;
+    public boolean isAtivo() {
+        return ativo;
     }
 
-    // Método para mover o robô com String
+    public void explodir() {
+        this.ativo = false;
+        System.out.println("O robô " + cor + " explodiu!");
+    }
+
+    public void voltarPosicaoAnterior() {
+        this.eixoX = this.posicaoAnteriorX;
+        this.eixoY = this.posicaoAnteriorY;
+        System.out.println("O robô " + cor + " voltou para a posição anterior: (" + eixoX + ", " + eixoY + ")");
+    }
+
     public void mover(String direcao) throws MovimentoInvalidoException {
-        switch (direcao.toLowerCase()) {
+        if (!ativo) {
+            throw new MovimentoInvalidoException("O robô " + cor + " não pode se mover porque está inativo.");
+        }
+
+        // Salva a posição anterior
+        this.posicaoAnteriorX = this.eixoX;
+        this.posicaoAnteriorY = this.eixoY;
+
+        int novoX = eixoX;
+        int novoY = eixoY;
+
+        switch (direcao) {
             case "up":
-                if (eixoY + 1 < 0) throw new MovimentoInvalidoException("up");
-                eixoY += 1;
+                novoY--;
                 break;
             case "down":
-                if (eixoY - 1 < 0) throw new MovimentoInvalidoException("down");
-                eixoY -= 1;
-                break;
-            case "right":
-                if (eixoX + 1 < 0) throw new MovimentoInvalidoException("right");
-                eixoX += 1;
+                novoY++;
                 break;
             case "left":
-                if (eixoX - 1 < 0) throw new MovimentoInvalidoException("left");
-                eixoX -= 1;
+                novoX--;
+                break;
+            case "right":
+                novoX++;
                 break;
             default:
                 throw new IllegalArgumentException("Direção inválida: " + direcao);
         }
+
+        // Verifica se o movimento é válido 
+        if (novoX < 0 || novoX >= 4 || novoY < 0 || novoY >= 4) {
+            throw new MovimentoInvalidoException("Movimento inválido para a direção: " + direcao);
+        }
+
+        // Atualiza a posição 
+        eixoX = novoX;
+        eixoY = novoY;
     }
 
-    // Método sobrecarregado para mover o robô com int(verificar pq nao funciona)
-    public void mover(int direcao) throws MovimentoInvalidoException {
-        switch (direcao) {
-            case 1:
-                mover("up");
-                break;
-            case 2:
-                mover("down");
-                break;
-            case 3:
-                mover("right");
-                break;
-            case 4:
-                mover("left");
-                break;
-            default:
-                throw new IllegalArgumentException("Direção inválida: " + direcao);
-        }
-    }
-    // Método para verificar se o robô encontrou o alimento
-    public boolean encontrouAlimento(int alimentoX, int alimentoY) {
-        return this.eixoX == alimentoX && this.eixoY == alimentoY;
+    public boolean encontrouAlimento(int x, int y) {
+        //  verifica se o robô encontrou o alimento
+        return eixoX == x && eixoY == y;
     }
 }
