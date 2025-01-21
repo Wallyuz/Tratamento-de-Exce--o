@@ -99,5 +99,6 @@ public class Robo {
     public boolean encontrouAlimento(int x, int y) {
         //  verifica se o robô encontrou o alimento
         return eixoX == x && eixoY == y;
+        
     }
 }

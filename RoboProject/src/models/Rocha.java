@@ -10,5 +10,6 @@ public class Rocha extends Obstaculo {
     public void bater(Robo robo) {
         // Faz o robô voltar 
         robo.voltarPosicaoAnterior();
+        
     }
 }

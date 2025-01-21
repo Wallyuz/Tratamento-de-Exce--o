@@ -13,15 +13,15 @@ public class MainDoisRobos {
         Robo robo1 = new Robo("vermelho");
         Robo robo2 = new Robo("azul");
 
-        System.out.print("Digite a posição X do alimento: ");
-        int alimentoX = scanner.nextInt();
-        System.out.print("Digite a posição Y do alimento: ");
-        int alimentoY = scanner.nextInt();
-
         int movimentosValidosRobo1 = 0;
         int movimentosInvalidosRobo1 = 0;
         int movimentosValidosRobo2 = 0;
         int movimentosInvalidosRobo2 = 0;
+        
+        System.out.print("Digite a posição X do alimento: ");
+        int alimentoX = scanner.nextInt();
+        System.out.print("Digite a posição Y do alimento: ");
+        int alimentoY = scanner.nextInt();
 
         while (true) {
             // Movimento do robô 1

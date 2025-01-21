@@ -37,4 +37,5 @@ public abstract class Obstaculo {
 
     // Método abstrato implementado pelas subclasses
     public abstract void bater(Robo robo);
+    
 }

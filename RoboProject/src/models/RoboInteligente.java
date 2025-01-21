@@ -36,6 +36,7 @@ public class RoboInteligente extends Robo {
         // Verifica se o robô bateu
         if (this.getX() == obstaculo.getX() && this.getY() == obstaculo.getY()) {
             obstaculo.bater(this);
+            
         }
     }
 }

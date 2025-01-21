@@ -15,15 +15,15 @@ public class MainAmbosEncontram {
         Robo roboNormal = new Robo("vermelho");
         RoboInteligente roboInteligente = new RoboInteligente("azul");
 
+         // Contadores de movimentos
+         int movimentosRoboNormal = 0;
+         int movimentosRoboInteligente = 0;
+
         // Input do alimento
         System.out.print("Digite a posição X do alimento: ");
         int alimentoX = scanner.nextInt();
         System.out.print("Digite a posição Y do alimento: ");
         int alimentoY = scanner.nextInt();
-
-        // Contadores de movimentos
-        int movimentosRoboNormal = 0;
-        int movimentosRoboInteligente = 0;
 
         // Direções possíveis
         String[] direcoes = {"up", "down", "left", "right"};

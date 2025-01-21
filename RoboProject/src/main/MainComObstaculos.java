@@ -13,6 +13,8 @@ public class MainComObstaculos {
 
         Robo roboNormal = new Robo("vermelho");
         RoboInteligente roboInteligente = new RoboInteligente("azul");
+        int movimentosRoboNormal = 0;
+        int movimentosRoboInteligente = 0;
 
         System.out.print("Digite a posição X do alimento: ");
         int alimentoX = scanner.nextInt();
@@ -49,9 +51,6 @@ public class MainComObstaculos {
             int rochaY = scanner.nextInt();
             tabuleiro[rochaY][rochaX] = 'R';
         }
-
-        int movimentosRoboNormal = 0;
-        int movimentosRoboInteligente = 0;
 
         while (true) {
             // Movimento do robô normal
