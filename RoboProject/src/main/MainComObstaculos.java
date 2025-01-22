@@ -58,6 +58,13 @@ public class MainComObstaculos {
                 roboNormal.mover(direcaoAleatoria(random.nextInt(4)));
                 movimentosRoboNormal++;
                 exibirMatriz(roboNormal, roboInteligente, alimentoX, alimentoY, tabuleiro);
+                // Retarda a execução para visualizar os movimentos
+            try {
+                Thread.sleep(1000); 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+
+            }
                 if (roboNormal.getX() == alimentoX && roboNormal.getY() == alimentoY) {
                     System.out.println("O robô normal encontrou o alimento em " + movimentosRoboNormal + " movimentos.");
                     break;

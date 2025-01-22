@@ -56,7 +56,7 @@ public class MainAmbosEncontram {
 
             // Retarda a execução para visualizar os movimentos
             try {
-                Thread.sleep(150); // 1000 milissegundos = 1 segundo
+                Thread.sleep(150); 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
