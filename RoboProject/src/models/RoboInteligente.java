@@ -10,6 +10,7 @@ public class RoboInteligente extends Robo {
         super(cor);
         this.random = new Random();
     }
+    
 
     @Override
     public void mover(String direcao) throws MovimentoInvalidoException {
