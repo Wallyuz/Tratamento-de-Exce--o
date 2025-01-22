@@ -49,7 +49,7 @@ public class MainAmbosEncontram {
                     roboInteligente.mover(direcaoRoboInteligente);
                     movimentosRoboInteligente++;
                     System.out.println("Nova posição do robô Inteligente " + roboInteligente.getCor() + ": (" + roboInteligente.getX() + ", " + roboInteligente.getY() + ")");
-                } catch (MovimentoInvalidoException | IllegalArgumentException e) {
+                } catch (MovimentoInvalidoException e) {
                     System.out.println("Movimento inválido do robô " + roboInteligente.getCor() + ": " + e.getMessage());
                 }
             }

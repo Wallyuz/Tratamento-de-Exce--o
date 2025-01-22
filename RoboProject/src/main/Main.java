@@ -28,7 +28,7 @@ public class Main {
             try {
                 robo.mover(direcao);
                 System.out.println("Nova posição do robô " + robo.getCor() + ": (" + robo.getX() + ", " + robo.getY() + ")");
-            } catch (MovimentoInvalidoException | IllegalArgumentException e) {
+            } catch (MovimentoInvalidoException e) {
                 System.out.println(e.getMessage());
             }
 
